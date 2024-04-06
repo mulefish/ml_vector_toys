@@ -7,7 +7,7 @@ async function main() {
  
       const ASTRA_DB_APPLICATION_TOKEN = getTokenFromFile();
       const ASTRA_DB_API_ENDPOINT = "https://9b3690b6-f229-4ee7-b679-b5795df78bb1-us-east-2.apps.astra.datastax.com"
-  
+                                     
   // Initialize the client. The keyspace parameter is optional if you use
   // "default_keyspace".
   const db = new AstraDB(

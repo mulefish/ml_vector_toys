@@ -1,3 +1,8 @@
 node_modules
 .mysecret.txt
 package-lock.json
+__pycache__
+Untitled.ipynb
+.ipynb_checkpoints/
+.ipynb_checkpoints
+*pyc

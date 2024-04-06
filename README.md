@@ -5,9 +5,18 @@ https://astra.datastax.com/org/c2581484-4f58-4f32-b877-8aefb282a340/database/9b3
 See hidden file .mysecret.txt
 It is from the above astra.datastax url
 
-# pip: 
-pip install --upgrade astrapy
-Sigh - ModuleNotFound - guess I shall use node then 
+# login
+same email as github/mulefish
+
+# db name: 
+mulefish_db
+
+# pip ( jupyter ): 
+!pip install --upgrade astrapy
+
+# pip ( normal ): 
+pip3 install astrapy 
+
 
 # npm 
 npm install @datastax/astra-db-ts
