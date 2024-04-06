@@ -3,3 +3,11 @@ https://astra.datastax.com/org/c2581484-4f58-4f32-b877-8aefb282a340/database/9b3
 
 # token: 
 See hidden file .mysecret.txt
+It is from the above astra.datastax url
+
+# pip: 
+pip install --upgrade astrapy
+Sigh - ModuleNotFound - guess I shall use node then 
+
+# npm 
+npm install @datastax/astra-db-ts

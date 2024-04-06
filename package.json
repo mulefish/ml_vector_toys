@@ -1,0 +1,15 @@
+{
+  "name": "ml_vector_toys",
+  "version": "1.0.0",
+  "description": "https://astra.datastax.com/org/c2581484-4f58-4f32-b877-8aefb282a340/database/9b3690b6-f229-4ee7-b679-b5795df78bb1/data-explorer?connectDialog=1",
+  "main": "index.js",
+  "type":"module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@datastax/astra-db-ts": "^0.1.4"
+  }
+}
