@@ -1,6 +1,7 @@
 import fs from 'fs';
 
-function getTokenFromFile(filePath) {
+function getTokenFromFile() {
+    const filePath = ".mysecret.txt" // Is in the .gitignore
     try {
         const token = fs.readFileSync(filePath, 'utf8').trim();
         return token;
