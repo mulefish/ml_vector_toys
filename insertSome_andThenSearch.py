@@ -11,37 +11,37 @@ db = AstraDB(
     namespace="default_keyspace",
 )
 # print(db)
-
+collection_name = "vector_test2"
 # metric will defined which sort strategy to use. I am a little squishy on what 'dimension' is doing here.
-collection = db.create_collection("vector_test", dimension=5, metric="dot_product")
-# "dimension": 5, // TODO: dimension = size of the array that the vectors will have? I think this is a hint to astra on how to organize things.
-# "metric": "cosine" // Slow but no need to normalize the vectors first
-# "metric": "dot_product" // Quick but have to normalize the vectors first
-# "metric": "euclidean" // Good for Clustering
+collection = db.create_collection(collection_name, dimension=5, metric="dot_product")
+# # "dimension": 5, // TODO: dimension = size of the array that the vectors will have? I think this is a hint to astra on how to organize things.
+# # "metric": "cosine" // Slow but no need to normalize the vectors first
+# # "metric": "dot_product" // Quick but have to normalize the vectors first
+# # "metric": "euclidean" // Good for Clustering
 
 
-print(collection)
+# print(collection)
 
 # Insert documents into the collection to have something to search for
 documents = [
     {
         "_id": "1",
-        "text": "ChatGPT integrated sneakers that talk to you",
-        "$vector": [0.1, 0.15, 0.3, 0.12, 0.05],
+        "text": "Cats says meow",
+        "$vector": [0.1, 0.15, 0.3, 0.12, 0.05],  
     },
     {
         "_id": "2",
-        "text": "An AI quilt to help you sleep forever",
+        "text": "Whales are biggest than apples",
         "$vector": [0.45, 0.09, 0.01, 0.2, 0.11],
     },
     {
         "_id": "3",
-        "text": "A deep learning display that controls your mood",
+        "text": "I am glad I am not a tree",
         "$vector": [0.1, 0.05, 0.08, 0.3, 0.6],
     },
 ]
 res = collection.insert_many(documents)
-print(res)
+# print(res)
 
 # Perform a similarity search! Notice that this vector is NOT and exact much!
 # Sloppy logic is the best logic
@@ -52,5 +52,5 @@ for document in results:
     print(document)
 
 # Delete the collection
-res = db.delete_collection(collection_name="vector_test")
+res = db.delete_collection(collection_name=collection_name)
 print(res)
