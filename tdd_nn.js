@@ -1,4 +1,4 @@
-import { sigmoid, sigmoidDerivative, NeuralNetwork, initializeWeights, feedForward } from './nn.js';
+import { sigmoid, sigmoidDerivative, NeuralNetwork, initializeWeights, feedForward, backPropagation } from './nn.js';
 
 function verdict(a, b, msg) {
     if (JSON.stringify(a) === JSON.stringify(b)) {
@@ -42,10 +42,6 @@ function neural_net_class_setup_test_1() {
     isOk && n.weightsInputHidden.length > 0 && n.weightsInputHidden[0].length > 0
     isOk && n.weightsHiddenOutput.length > 0 && n.weightsHiddenOutput[0].length > 0
 
-
-
-
-
     verdict(isOk, true, "neural_net_class_setup_test_1")
 
 
@@ -79,12 +75,39 @@ function feedForward_test() {
     const isOk = x >= 0 && x <= 1
     verdict(isOk, true, "feedForward_test")
 }
+function backPropagation_test() { 
+  // Sample input data
+  const input = [0.5, 0.3, 0.2];
+
+  // Sample target output data
+  const target = [0.7, 0.4];
+
+  // Sample weights for input to hidden layer
+  const weightsInputHidden = [0.1, 0.2, 0.3];
+
+  // Sample weights for hidden layer to output layer
+  const weightsHiddenOutput = [0.4, 0.5, 0.6];
+
+  // Sample biases for hidden layer
+  const biasHidden = [0.1, 0.2, 0.3];
+
+  // Sample biases for output layer
+  const biasOutput = [0.4, 0.5]; // Ensure this array has the correct length
+
+  // Call the backPropagation function
+  const { newWeightsHiddenOutput, newBiasOutput } = backPropagation(input, target, weightsInputHidden, weightsHiddenOutput, biasHidden, biasOutput);
+
+  // Print the updated weights and biases
+  console.log('New Weights Hidden Output:', newWeightsHiddenOutput);
+  console.log('New Bias Output:', newBiasOutput);
+}
 function main() {
     sigmoid_test()
     sigmoidDerivative_test()
     neural_net_class_setup_test_1()
     initializeWeights_test()
     feedForward_test()
+    backPropagation_test() 
 }
 main()
 
